@@ -1,10 +1,10 @@
 /**
  * The program is the class
- * for the Boeing 747.
+ * for the Truck.
  *
  * By:      Jackson Naufal
  * Version: 1.0
- * Since:   2020-10-19
+ * Since:   2022-11-02
  */
 
 import Vehicle from './Vehicle'
@@ -12,11 +12,18 @@ import Vehicle from './Vehicle'
 class Truck extends Vehicle {
   // this sets the speed
   private licensePlate: string
+  private airPressure: number
 
   // This gets the variables and the color, licensePlate, and hte max Speed
-  constructor(color: string, licensePlate: string, maxSpeed: number) {
+  constructor(
+    color: string,
+    licensePlate: string,
+    maxSpeed: number,
+    airPressure: number
+  ) {
     super(color, maxSpeed)
     this.licensePlate = licensePlate
+    this.airPressure = airPressure
   }
 
   // this returns the licensePlate
@@ -29,9 +36,21 @@ class Truck extends Vehicle {
     this.licensePlate = licensePlateNew
   }
 
-  // this is the air pressure function
-  provideAir(airPressure: number): void {
-    super.setSpeed(super.getSpeed() - airPressure / 2)
+  // this returns the air pressure.
+  getPressure(): number {
+    return this.airPressure
+  }
+
+  // this sets the air pressure
+  setPressure(airPressure: number): void {
+    this.airPressure = airPressure
+  }
+
+  // this is the break for truck method
+  break(breakTime: number, breakPower: number): void {
+    super.setSpeed(
+      super.getSpeed() - breakPower * breakTime - this.airPressure * breakTime
+    )
 
     if (super.getSpeed() < 0) {
       super.setSpeed(0)

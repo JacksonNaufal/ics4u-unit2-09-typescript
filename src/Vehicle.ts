@@ -25,7 +25,7 @@ class Vehicle {
   }
 
   // this sets the colours
-  setColor(newColor: string) {
+  setColor(newColor: string): void {
     this.color = newColor
   }
 

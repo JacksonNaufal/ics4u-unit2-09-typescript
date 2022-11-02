@@ -1,15 +1,16 @@
 /**
  * The program is the class
- * for the Boeing 747.
+ * for the Bike.
  *
  * By:      Jackson Naufal
  * Version: 1.0
- * Since:   2020-10-19
+ * Since:   2020-11-02
  */
 
 import Vehicle from './Vehicle'
 
 class Bike extends Vehicle {
+  // This is the cadence variable
   private cadence = 0
 
   // this sets the speed
