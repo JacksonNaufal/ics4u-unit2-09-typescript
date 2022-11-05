@@ -9,7 +9,7 @@
 
 import Vehicle from './Vehicle'
 
-class Truck extends Vehicle {
+abstract class Truck extends Vehicle {
   // this sets the speed
   private licensePlate: string
   private airPressure: number
@@ -59,10 +59,8 @@ class Truck extends Vehicle {
 
   // this displays the status
   status(): void {
+    super.status()
     console.log(`
-     ---> Speed: ${super.getSpeed()}
-     ---> MaxSpeed: ${super.getMaxSpeed()}
-     ---> Color: ${super.getColor()}
      ---> License Plate: ${this.licensePlate}
     `)
   }
